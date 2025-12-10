@@ -28,9 +28,12 @@ services:
   postgres:
     image: postgres:15-alpine
     environment:
-      - POSTGRES_USER=flowhub
-      - POSTGRES_PASSWORD=flowhub123
-      - POSTGRES_DB=flowhub_db
+      - NODE_ENV=development
+      - DB_HOST=postgres # overrides .env
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=John-2001
+      - DB_DATABASE=postgres
     ports:
       - '5432:5432'
     volumes:

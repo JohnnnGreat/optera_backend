@@ -22,6 +22,9 @@ import { TenantConnectionService } from './services/tenant-connection.service';
         logging: configService.get('NODE_ENV') === 'development',
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
+        ssl: {
+          rejectUnauthorized: false,
+        },
       }),
       dataSourceFactory: async (options) => {
         const dataSource = new DataSource(options!);
